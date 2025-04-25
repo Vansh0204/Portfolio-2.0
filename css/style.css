@@ -34,6 +34,67 @@
     --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
+[data-theme="dark"] .header {
+    background-color: rgba(26, 27, 38, 0.95);
+}
+
+[data-theme="dark"] .portfolio-title {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .about {
+    background-color: var(--bg-color);
+}
+
+[data-theme="dark"] .contact {
+    background: linear-gradient(135deg, var(--bg-color) 0%, #1e272e 100%);
+}
+
+[data-theme="dark"] .contact-form {
+    background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group textarea {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .theme-toggle {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .modal-content {
+    background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .modal-title,
+[data-theme="dark"] .modal-description {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .portfolio-item {
+    background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .skill-category {
+    background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .skill-item {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .stat-item {
+    background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .hero {
+    background: linear-gradient(135deg, var(--bg-color) 0%, #1e272e 100%);
+}
+
 html {
     scroll-behavior: smooth;
 }
