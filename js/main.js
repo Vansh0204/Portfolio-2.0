@@ -114,30 +114,23 @@ const themeToggle = document.getElementById('themeToggle');
 const icon = themeToggle.querySelector('i');
 
 themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-theme');
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
     icon.classList.toggle('fa-sun');
     icon.classList.toggle('fa-moon');
     
-    // Save theme preference with animation
-    const isDark = document.body.classList.contains('dark-theme');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    
-    // Add ripple effect
-    const ripple = document.createElement('span');
-    ripple.className = 'ripple';
-    themeToggle.appendChild(ripple);
-    
-    setTimeout(() => {
-        ripple.remove();
-    }, 600);
+    // Save theme preference
+    localStorage.setItem('theme', isDark ? 'light' : 'dark');
 });
 
 // Check for saved theme preference
 const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'dark') {
-    document.body.classList.add('dark-theme');
-    icon.classList.remove('fa-moon');
-    icon.classList.add('fa-sun');
+if (savedTheme) {
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    if (savedTheme === 'dark') {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    }
 }
 
 // Loading screen
