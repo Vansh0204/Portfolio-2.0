@@ -6,7 +6,7 @@ import { ReactIcon, JsIcon, TsIcon, PythonIcon, NodeIcon, DbIcon, GitIcon, Docke
 const SHELVES = [
   {
     name: 'FRONTEND',
-    x: 40,
+    x: 82,
     id: 'frontend',
     skills: [
       { label: 'REACT',  Icon: ReactIcon },
@@ -19,7 +19,7 @@ const SHELVES = [
   },
   {
     name: 'BACKEND',
-    x: 225,
+    x: 267,
     id: 'backend',
     skills: [
       { label: 'NODE',   Icon: NodeIcon },
@@ -32,7 +32,7 @@ const SHELVES = [
   },
   {
     name: 'TOOLS',
-    x: 410,
+    x: 452,
     id: 'tools',
     skills: [
       { label: 'GIT',    Icon: GitIcon },
@@ -45,7 +45,7 @@ const SHELVES = [
   },
   {
     name: 'AI & RUST',
-    x: 595,
+    x: 637,
     id: 'airust',
     skills: [
       { label: 'AI/ML',  Icon: AIIcon },
@@ -147,8 +147,8 @@ const SkillsRoom = () => {
         </React.Fragment>
       ))}
 
-      {/* Pixel cat sitting on top of TOOLS shelf (x=410) */}
-      <div style={{ position: 'absolute', left: '440px', bottom: '420px' }}>
+      {/* Pixel cat sitting on top of TOOLS shelf (x=452) */}
+      <div style={{ position: 'absolute', left: '482px', bottom: '420px' }}>
         {/* body */}
         <div style={{ position: 'absolute', left: 0, bottom: 0, width: '14px', height: '10px', backgroundColor: 'var(--gb-light)' }} />
         {/* head */}
@@ -164,15 +164,15 @@ const SkillsRoom = () => {
         <div style={{ position: 'absolute', left: '-8px', bottom: '0px', width: '8px', height: '14px', borderLeft: '3px solid var(--gb-light)', borderTop: '3px solid var(--gb-light)', borderTopLeftRadius: '10px' }} />
       </div>
 
-      {/* Small open book on floor between shelves 2 and 3 — no table, just a book on rug */}
-      <div style={{ position: 'absolute', left: '323px', bottom: '108px', display: 'flex' }}>
+      {/* Small open book on floor between shelves 2 and 3 */}
+      <div style={{ position: 'absolute', left: '382px', bottom: '108px', display: 'flex' }}>
         <div style={{ width: '18px', height: '12px', backgroundColor: 'var(--gb-light)', border: '2px solid var(--gb-dark)', transform: 'skewY(-15deg)', transformOrigin: 'right bottom' }} />
         <div style={{ width: '18px', height: '12px', backgroundColor: 'var(--gb-light)', border: '2px solid var(--gb-dark)', transform: 'skewY(15deg)', transformOrigin: 'left bottom' }} />
       </div>
 
-      {/* Floor rug */}
+      {/* Floor rug - centered */}
       <div style={{
-        position: 'absolute', left: '240px', bottom: '30px', width: '310px', height: '36px',
+        position: 'absolute', left: '245px', bottom: '30px', width: '310px', height: '36px',
         backgroundColor: 'var(--gb-dark)', border: '4px solid var(--gb-darkest)', boxSizing: 'border-box',
         backgroundImage: 'linear-gradient(45deg, var(--gb-darkest) 25%, transparent 25%, transparent 75%, var(--gb-darkest) 75%), linear-gradient(-45deg, var(--gb-darkest) 25%, transparent 25%, transparent 75%, var(--gb-darkest) 75%)',
         backgroundSize: '10px 10px', backgroundPosition: '0 0, 5px 5px'

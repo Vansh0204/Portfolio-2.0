@@ -1,4 +1,5 @@
 import React from 'react';
+import { GithubIcon, LinkedinIcon } from './PixelIcons';
 
 const Cloud = ({ x, y }) => (
   <div style={{ position: 'absolute', left: x, top: y }}>
@@ -53,12 +54,12 @@ const ContactRoom = () => {
       <Tree x="510px" y="200px" />
       
       {/* 8. Stone winding path to mailbox */}
-      {[ [380, 10], [350, 25], [320, 35], [290, 45], [260, 50] ].map((pos, i) => (
+      {[ [420, 40], [390, 55], [360, 65], [330, 75], [300, 80] ].map((pos, i) => (
          <div key={`path-${i}`} style={{ position: 'absolute', left: `${pos[0]}px`, bottom: `${pos[1]}px`, width: '20px', height: '10px', backgroundColor: 'var(--gb-medium)' }} />
       ))}
 
       {/* 3. Mailbox */}
-      <div style={{ position: 'absolute', left: '220px', bottom: '60px', zIndex: 20 }}>
+      <div style={{ position: 'absolute', left: '280px', bottom: '90px', zIndex: 20 }}>
          {/* Post */}
          <div style={{ position: 'absolute', left: '20px', bottom: 0, width: '10px', height: '80px', backgroundColor: 'var(--gb-darkest)' }} />
          {/* Box Body */}
@@ -99,6 +100,28 @@ const ContactRoom = () => {
             <div style={{ color: 'var(--gb-darkest)', fontSize: '10px', fontFamily: "'Press Start 2P'", letterSpacing: '2px', textAlign: 'center', transform: 'scale(0.5)' }}>
               HIRE<br/><br/>ME!
             </div>
+         </div>
+      </div>
+
+      {/* 10. GitHub Terminal Station */}
+      <div style={{ position: 'absolute', left: '80px', bottom: '40px', zIndex: 30 }}>
+         <div style={{ position: 'absolute', left: '30px', bottom: 0, width: '10px', height: '70px', backgroundColor: 'var(--gb-darkest)' }} />
+         <div style={{ position: 'absolute', left: 0, bottom: '70px', width: '70px', height: '60px', border: '4px solid var(--gb-darkest)', backgroundColor: 'var(--gb-dark)', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
+            <div style={{ transform: 'scale(1.5)' }}>
+               <GithubIcon />
+            </div>
+            <div style={{ fontSize: '6px', fontFamily: "'Press Start 2P'", color: 'var(--gb-light)' }}>GITHUB</div>
+         </div>
+      </div>
+
+      {/* 11. LinkedIn Billboard Station */}
+      <div style={{ position: 'absolute', left: '480px', bottom: '40px', zIndex: 30 }}>
+         <div style={{ position: 'absolute', left: '25px', bottom: 0, width: '10px', height: '100px', backgroundColor: 'var(--gb-darkest)' }} />
+         <div style={{ position: 'absolute', left: 0, bottom: '100px', width: '60px', height: '50px', border: '3px solid var(--gb-darkest)', backgroundColor: 'var(--gb-medium)', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '4px' }}>
+            <div style={{ transform: 'scale(1.2)' }}>
+               <LinkedinIcon />
+            </div>
+            <div style={{ fontSize: '5px', fontFamily: "'Press Start 2P'", color: 'var(--gb-darkest)' }}>LINKEDIN</div>
          </div>
       </div>
 

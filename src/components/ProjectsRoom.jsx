@@ -7,56 +7,56 @@ const CABINETS = [
     name: 'ASKMYNOTES',
     color: 'var(--gb-medium)',
     Icon: AIIcon,
-    tech: ['NEXT.JS', 'AI'],
+    tech: ['NEXT.JS', 'PINECONE', 'OPENAI', 'CLERK', 'TAILWIND'],
     description: 'Upload your PDFs and let AI bring them to life.'
   },
   {
     name: 'VOLUNTEERCONNECT',
     color: 'var(--gb-dark)',
     Icon: NodeIcon,
-    tech: ['NODE', 'JWT'],
+    tech: ['NODE', 'EXPRESS', 'MONGODB', 'JWT', 'REACT', 'REDUX'],
     description: 'Volunteer management platform.'
   },
   {
     name: 'WEAVE',
     color: 'var(--gb-medium)',
     Icon: ReactIcon,
-    tech: ['WEBRTC', 'YJS'],
+    tech: ['WEBRTC', 'YJS', 'REACT', 'CANVAS', 'WEBSOCKETS'],
     description: 'Decentralized collaborative whiteboard.'
   },
   {
     name: 'NEXUSPARK',
     color: 'var(--gb-dark)',
     Icon: TsIcon,
-    tech: ['TS', 'NODE'],
+    tech: ['TYPESCRIPT', 'NODE', 'EXPRESS', 'POSTGRES', 'DOCKER'],
     description: 'Smart parking with design patterns.'
   },
   {
     name: 'BEYOND LIMITS',
     color: 'var(--gb-medium)',
     Icon: CloudIcon,
-    tech: ['NEXT.JS', 'SUPABASE'],
+    tech: ['NEXT.JS', 'SUPABASE', 'TIP TAP', 'AI SDK', 'Framer'],
     description: 'AI-powered CMS blog platform.'
   },
   {
     name: 'AMALGUS',
     color: 'var(--gb-dark)',
     Icon: ReactIcon,
-    tech: ['GROQ', 'AI'],
+    tech: ['GROQ', 'AI', 'REACT', 'MONGODB', 'EXPRESS'],
     description: 'Glass marketplace with AI Matcher.'
   },
   {
     name: 'MENTORA',
     color: 'var(--gb-medium)',
     Icon: ReactIcon,
-    tech: ['FIREBASE', 'REACT'],
+    tech: ['FIREBASE', 'REACT', 'CHAKRA UI', 'AUTH', 'REALTIME'],
     description: 'Mentorship and learning platform.'
   },
   {
     name: 'QUICKSTACK',
     color: 'var(--gb-dark)',
     Icon: NodeIcon,
-    tech: ['REDIS', 'NEXT.JS'],
+    tech: ['REDIS', 'NODE', 'NEXT.JS', 'CACHING', 'PERF'],
     description: 'Performance caching benchmark.'
   },
 ];
@@ -185,7 +185,7 @@ const ProjectsRoom = ({ roomScrollX, isMoving }) => {
                   textAlign: 'center', 
                   lineHeight: 1.2,
                   whiteSpace: 'nowrap',
-                  transform: cabinet.name.length > 8 ? `scale(${8 / cabinet.name.length})` : 'none',
+                  transform: cabinet.name.length > 6 ? `scale(${6.5 / cabinet.name.length})` : 'none',
                   transformOrigin: 'center center'
                 }}>
                   {cabinet.name}
@@ -204,21 +204,22 @@ const ProjectsRoom = ({ roomScrollX, isMoving }) => {
                 </div>
 
                 {/* Tech stack badge strip */}
-                <div style={{ width: '74px', height: '18px', backgroundColor: 'var(--gb-medium)', display: 'flex', alignItems: 'center', gap: '3px', padding: '2px 4px', boxSizing: 'border-box' }}>
+                <div style={{ width: '74px', height: '18px', backgroundColor: 'var(--gb-medium)', display: 'flex', alignItems: 'center', gap: '3px', padding: '2px 4px', boxSizing: 'border-box', overflow: 'hidden' }}>
                   {cabinet.Icon && (
-                    <div style={{ transform: 'scale(0.65)', transformOrigin: 'left center', flexShrink: 0 }}>
+                    <div style={{ transform: 'scale(0.65)', transformOrigin: 'left center', flexShrink: 0, zIndex: 5, backgroundColor: 'var(--gb-medium)', paddingRight: '2px' }}>
                       <cabinet.Icon />
                     </div>
                   )}
-                  <div style={{ 
-                    fontSize: '6px', 
-                    fontFamily: "'Press Start 2P'", 
-                    color: 'var(--gb-darkest)', 
-                    lineHeight: 1.3,
-                    whiteSpace: 'nowrap',
-                    overflow: 'hidden'
-                  }}>
-                    {cabinet.tech.join(' ')}
+                  <div className="tech-marquee-container" style={{ flex: 1, height: '100%', display: 'flex', alignItems: 'center' }}>
+                    <div className="tech-marquee-content" style={{ 
+                      fontSize: '6px', 
+                      fontFamily: "'Press Start 2P'", 
+                      color: 'var(--gb-darkest)',
+                      animationDuration: `${Math.max(3, cabinet.tech.join(' ').length * 0.4)}s`
+                    }}>
+                      <span>{cabinet.tech.join(' ')}</span>
+                      <span>{cabinet.tech.join(' ')}</span>
+                    </div>
                   </div>
                 </div>
 
@@ -253,7 +254,7 @@ const ProjectsRoom = ({ roomScrollX, isMoving }) => {
                   fontFamily: "'Press Start 2P'", 
                   color: 'var(--gb-light)',
                   whiteSpace: 'nowrap',
-                  transform: cabinet.name.length > 8 ? `scale(${8 / cabinet.name.length})` : 'none',
+                  transform: cabinet.name.length > 6 ? `scale(${6.5 / cabinet.name.length})` : 'none',
                   transformOrigin: 'center center'
                 }}>
                   {cabinet.name}
@@ -265,7 +266,17 @@ const ProjectsRoom = ({ roomScrollX, isMoving }) => {
         })}
 
         {/* Trophy at far right */}
-        <div style={{ position: 'absolute', left: '1520px', bottom: '100px', width: '60px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div style={{ position: 'absolute', left: '1480px', bottom: '230px', width: '90px', textAlign: 'center' }}>
+          <div style={{ 
+            padding: '8px 6px', backgroundColor: 'var(--gb-darkest)', color: 'var(--gb-light)', 
+            fontSize: '8px', fontFamily: "'Press Start 2P'", borderRadius: '2px', border: '2px solid var(--gb-light)',
+            display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px'
+          }}>
+            <span>MORE ON</span>
+            <span>GITHUB</span>
+          </div>
+        </div>
+        <div style={{ position: 'absolute', left: '1495px', bottom: '100px', width: '60px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <div style={{ width: '24px', height: '30px', backgroundColor: 'var(--gb-light)', position: 'relative', borderBottomRightRadius: '12px', borderBottomLeftRadius: '12px' }}>
             <div style={{ position: 'absolute', bottom: '-10px', left: '8px', width: '8px', height: '10px', backgroundColor: 'var(--gb-light)' }} />
             <div style={{ position: 'absolute', left: '-8px', top: '4px', width: '8px', height: '14px', border: '3px solid var(--gb-light)', borderRadius: '10px 0 0 10px', borderRight: 'none', boxSizing: 'border-box' }} />

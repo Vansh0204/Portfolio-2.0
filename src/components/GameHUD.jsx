@@ -1,7 +1,7 @@
 import React from 'react';
 
-const GameHUD = ({ x, currentRoom, roomScrollX, score, musicOn, toggleMusic, toggleFullscreen, theme, setTheme, themes }) => {
-  const ROOM_NAMES = ['ABOUT', 'SKILLS', 'PROJECTS', 'OPEN SOURCE', 'CONTACT'];
+const GameHUD = ({ x, currentRoom, roomScrollX, score, musicOn, toggleMusic, toggleFullscreen, theme, setTheme, themes, onNext, onPrev }) => {
+  const ROOM_NAMES = ['ABOUT', 'SKILLS', 'PROJECTS', 'OPEN SOURCE', 'ACHIEVEMENTS', 'CONTACT'];
   const currentThemeIndex = themes ? themes.findIndex(t => t.id === theme) : -1;
   
   return (
@@ -22,9 +22,69 @@ const GameHUD = ({ x, currentRoom, roomScrollX, score, musicOn, toggleMusic, tog
           </div>
        </div>
 
-       {/* 2. Top-Center Room Name */}
-       <div style={{ position: 'absolute', top: '25px', left: '50%', transform: 'translateX(-50%)', fontSize: '12px', fontFamily: "'Press Start 2P'", color: 'var(--gb-darkest)' }}>
-          ROOM: {ROOM_NAMES[currentRoom]}
+       {/* 2. Top-Center Room Name + Navigation */}
+       <div style={{ 
+          position: 'absolute', 
+          top: '20px', 
+          left: '50%', 
+          transform: 'translateX(-50%)', 
+          display: 'flex', 
+          alignItems: 'center', 
+          gap: '12px', 
+          pointerEvents: 'auto' 
+       }}>
+          <button 
+             onClick={onPrev}
+             className="nav-btn"
+             disabled={currentRoom === 0}
+             style={{ 
+                background: 'var(--gb-medium)', 
+                border: '2px solid var(--gb-darkest)', 
+                color: 'var(--gb-darkest)', 
+                fontSize: '10px', 
+                fontFamily: "'Press Start 2P'", 
+                padding: '4px 8px', 
+                cursor: currentRoom === 0 ? 'default' : 'pointer',
+                opacity: currentRoom === 0 ? 0 : 1,
+                visibility: currentRoom === 0 ? 'hidden' : 'visible',
+                boxShadow: '2px 2px 0px var(--gb-dark)'
+             }}
+          >
+             ←
+          </button>
+
+          <div style={{ 
+             fontSize: '12px', 
+             fontFamily: "'Press Start 2P'", 
+             color: 'var(--gb-darkest)',
+             backgroundColor: 'var(--gb-medium)',
+             padding: '4px 10px',
+             border: '2px solid var(--gb-darkest)',
+             minWidth: '200px',
+             textAlign: 'center'
+          }}>
+             {ROOM_NAMES[currentRoom]}
+          </div>
+
+          <button 
+             onClick={onNext}
+             className="nav-btn"
+             disabled={currentRoom === ROOM_NAMES.length - 1}
+             style={{ 
+                background: 'var(--gb-medium)', 
+                border: '2px solid var(--gb-darkest)', 
+                color: 'var(--gb-darkest)', 
+                fontSize: '10px', 
+                fontFamily: "'Press Start 2P'", 
+                padding: '4px 8px', 
+                cursor: currentRoom === ROOM_NAMES.length - 1 ? 'default' : 'pointer',
+                opacity: currentRoom === ROOM_NAMES.length - 1 ? 0 : 1,
+                visibility: currentRoom === ROOM_NAMES.length - 1 ? 'hidden' : 'visible',
+                boxShadow: '2px 2px 0px var(--gb-dark)'
+             }}
+          >
+             →
+          </button>
        </div>
 
        {/* 3 & 6. Top-Right Score + Buttons */}
@@ -59,7 +119,7 @@ const GameHUD = ({ x, currentRoom, roomScrollX, score, musicOn, toggleMusic, tog
 
        {/* 4. Bottom Minimap (160x20 bar) */}
        <div style={{ position: 'absolute', bottom: '45px', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '2px' }}>
-          {[0, 1, 2, 3, 4].map(idx => (
+          {ROOM_NAMES.map((_, idx) => (
              <div key={idx} style={{ width: '28px', height: '14px', backgroundColor: currentRoom === idx ? 'var(--gb-darkest)' : 'var(--gb-medium)', position: 'relative', border: '1px solid var(--gb-darkest)' }}>
                 {currentRoom === idx && (
                    <div className="blink-fast" style={{ 

@@ -131,6 +131,32 @@ export const CloudIcon = () => (
   </div>
 );
 
+// GitHub Octocat (Simplified)
+export const GithubIcon = () => (
+  <div style={{ width: '16px', height: '16px', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    {/* Body */}
+    <div style={{ width: '12px', height: '10px', backgroundColor: 'var(--gb-light)', borderRadius: '50% 50% 40% 40%', position: 'absolute', bottom: '2px' }} />
+    {/* Ears */}
+    <div style={{ position: 'absolute', top: '2px', left: '2px', width: '4px', height: '4px', backgroundColor: 'var(--gb-light)', transform: 'rotate(-45deg)' }} />
+    <div style={{ position: 'absolute', top: '2px', right: '2px', width: '4px', height: '4px', backgroundColor: 'var(--gb-light)', transform: 'rotate(45deg)' }} />
+    {/* Face */}
+    <div style={{ position: 'absolute', width: '6px', height: '5px', backgroundColor: 'var(--gb-darkest)', top: '6px', borderRadius: '40%' }} />
+  </div>
+);
+
+// LinkedIn 'in' logo
+export const LinkedinIcon = () => (
+  <div style={{ width: '16px', height: '16px', backgroundColor: 'var(--gb-light)', position: 'relative', borderRadius: '2px' }}>
+    {/* 'i' */}
+    <div style={{ position: 'absolute', left: '3px', top: '6px', width: '3px', height: '7px', backgroundColor: 'var(--gb-darkest)' }} />
+    <div style={{ position: 'absolute', left: '3px', top: '3px', width: '3px', height: '2px', backgroundColor: 'var(--gb-darkest)' }} />
+    {/* 'n' */}
+    <div style={{ position: 'absolute', left: '8px', top: '6px', width: '3px', height: '7px', backgroundColor: 'var(--gb-darkest)' }} />
+    <div style={{ position: 'absolute', left: '8px', top: '6px', width: '5px', height: '3px', backgroundColor: 'var(--gb-darkest)', borderRadius: '2px 2px 0 0' }} />
+    <div style={{ position: 'absolute', left: '11px', top: '8px', width: '2px', height: '5px', backgroundColor: 'var(--gb-darkest)' }} />
+  </div>
+);
+
 // Map skill names to icons
 export const SKILL_ICONS = {
   'React': ReactIcon,

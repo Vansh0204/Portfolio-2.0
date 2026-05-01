@@ -61,16 +61,16 @@ const OpenSourceRoom = ({ nearestHotspotId }) => {
               {/* MERGE icon styling */}
               <div style={{ position: 'relative', width: '16px', height: '16px', marginBottom: '10px' }}>
                  {/* circle 1 */}
-                 <div style={{ position: 'absolute', left: 0, bottom: 0, width: '6px', height: '6px', backgroundColor: 'var(--gb-light)', borderRadius: '50%' }} />
+                 <div style={{ position: 'absolute', left: 0, bottom: 0, width: '6px', height: '6px', backgroundColor: 'var(--gb-darkest)', borderRadius: '50%' }} />
                  {/* circle 2 */}
-                 <div style={{ position: 'absolute', right: 0, top: 0, width: '6px', height: '6px', backgroundColor: 'var(--gb-light)', borderRadius: '50%' }} />
+                 <div style={{ position: 'absolute', right: 0, top: 0, width: '6px', height: '6px', backgroundColor: 'var(--gb-darkest)', borderRadius: '50%' }} />
                  {/* connective path */}
-                 <div style={{ position: 'absolute', left: '3px', bottom: '3px', width: '10px', height: '10px', borderTop: '2px solid var(--gb-light)', borderRight: '2px solid var(--gb-light)', borderTopRightRadius: '4px', boxSizing: 'border-box' }} />
+                 <div style={{ position: 'absolute', left: '3px', bottom: '3px', width: '10px', height: '10px', borderTop: '2px solid var(--gb-darkest)', borderRight: '2px solid var(--gb-darkest)', borderTopRightRadius: '4px', boxSizing: 'border-box' }} />
               </div>
-              <div style={{ fontSize: '10px', color: 'var(--gb-light)', transform: 'scale(0.6)', fontFamily: "'Press Start 2P'", marginBottom: '8px' }}>
+              <div style={{ fontSize: '10px', color: 'var(--gb-darkest)', transform: 'scale(0.7)', fontFamily: "'Press Start 2P'", marginBottom: '10px', fontWeight: 'bold' }}>
                 PR #{num}
               </div>
-              <div style={{ fontSize: '8px', color: 'var(--gb-darkest)', fontFamily: "'Press Start 2P'", textAlign: 'center', lineHeight: 1.4, marginBottom: '12px' }}>
+              <div style={{ fontSize: '10px', color: 'var(--gb-darkest)', fontFamily: "'Press Start 2P'", textAlign: 'center', lineHeight: 1.2, marginBottom: '12px' }}>
                 {name}
               </div>
               {/* Blank dialogue lines */}

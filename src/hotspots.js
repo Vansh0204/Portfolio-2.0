@@ -20,7 +20,7 @@ export const ROOM_HOTSPOTS = [
   { room: 2, xMin: 985, xMax: 1105, id: 'proj6', message: ["AmalGus is India's first digital marketplace for architectural glass.", "Centerpiece is a two-layer AI Smart Matcher interpreting plain-language queries.", "Supports four distinct user roles with personalized hero sections.", "Press F for Source, L for Live Demo."], link: "https://github.com/Vansh0204/amalgus-new", liveLink: "https://amalgus-new.vercel.app/" },
   { room: 2, xMin: 1170, xMax: 1290, id: 'proj7', message: ["Mentora is a mentorship and learning platform built with React 18 and Firebase.", "Features XP-based leaderboards, session booking, and progress dashboards.", "Built with Firebase (Auth + Firestore) and Framer Motion transitions.", "Press F for Source, L for Live Demo."], link: "https://github.com/Vansh0204/Mentora", liveLink: "https://mentora-beta.vercel.app/" },
   { room: 2, xMin: 1355, xMax: 1475, id: 'proj8', message: ["Quickstack is a fullstack benchmark tool for Redis caching strategies.", "Visualizes read-through, cache-aside, and cache warming in real-time.", "Built entirely in TypeScript with Next.js 13+ and Redis.", "Press F for Source, L for Live Demo."], link: "https://github.com/Vansh0204/Quickstack-Next.js-Redis-", liveLink: "https://quickstack-rho.vercel.app/" },
-  { room: 2, xMin: 1510, xMax: 1600, id: 'trophy', message: ["The Golden Committer Trophy.", "Awarded for surviving the 2026 deployment crisis."], link: null },
+  { room: 2, xMin: 1480, xMax: 1600, id: 'trophy', message: ["THE GOLDEN GITHUB TROPHY.", "There are many more experiments and repositories waiting on my profile.", "Press F to explore all my projects on GitHub!"], link: "https://github.com/Vansh0204" },
 
   // Room 3: Open Source
   { room: 3, xMin: 10, xMax: 160, id: 'pr1', message: ["Contributed a bug fix to Turborepo — Vercel's production build system.", "Resolved issue #11192 in the build pipeline via PR #11146.", "Turborepo is used by thousands of engineering teams worldwide.", "Click F to see the PR."], link: "https://github.com/vercel/turborepo/pull/11146" },
@@ -28,8 +28,16 @@ export const ROOM_HOTSPOTS = [
   { room: 3, xMin: 420, xMax: 560, id: 'pr3', message: ["Contributed a fix to Fastify — one of the fastest Node.js web frameworks.", "Resolved issue #6284 via PR #6608 in a large-scale production codebase.", "Fastify processes 76,000+ requests per second.", "Click F to see the PR."], link: "https://github.com/fastify/fastify/pull/6608" },
   { room: 3, xMin: 620, xMax: 760, id: 'pr4', message: ["Contributed a fix to expressjs/cors — middleware for 50M+ weekly downloads.", "Resolved issue #333 via PR #400 addressing cross-origin edge cases.", "Used in virtually every Express.js application on the internet.", "Click F to see the PR."], link: "https://github.com/expressjs/cors/pull/400" },
 
-  // Room 4: Contact
-  { room: 4, xMin: 200, xMax: 340, id: 'mailbox', message: ["The Mailbox.", "You reach inside and find Vansh's contact card:", "Email: vansh65ag@gmail.com", "Mobile: +91 9411068533", "Press F to send an email."], link: "mailto:vansh65ag@gmail.com" },
-  { room: 4, xMin: 580, xMax: 720, id: 'house', message: ["The Pixel Cabin.", "Locked from the outside. Authorized developers only."], link: null },
-  { room: 4, xMin: 660, xMax: 800, id: 'sign', message: ["NOTICE BOARD.", "'Looking for a robust engineer to architect complex systems?'", "'Look no further!'"], link: "https://twitter.com/vansh" }
+  // Room 5: Contact
+  { room: 5, xMin: 230, xMax: 350, id: 'mailbox', message: ["The Mailbox.", "You reach inside and find Vansh's contact card:", "Email: vansh65ag@gmail.com", "Mobile: +91 9411068533", "Press F to send an email."], link: "mailto:vansh65ag@gmail.com" },
+  { room: 5, xMin: 640, xMax: 760, id: 'house', message: ["The Pixel Cabin.", "Locked from the outside. Authorized developers only."], link: null },
+  { room: 5, xMin: 700, xMax: 780, id: 'sign', message: ["HIRE ME SIGN.", "'Looking for a robust engineer to architect complex systems?'", "Follow me on GitHub or LinkedIn!"], link: "https://github.com/Vansh0204" },
+  { room: 5, xMin: 60, xMax: 160, id: 'github_station', message: ["GITHUB TERMINAL.", "Here you can find all my open-source experiments and production codebases.", "Press F to view my GitHub profile."], link: "https://github.com/Vansh0204" },
+  { room: 5, xMin: 470, xMax: 570, id: 'linkedin_station', message: ["LINKEDIN BILLBOARD.", "Let's connect professionally!", "View my experience and endorsements.", "Press F to open LinkedIn."], link: "https://www.linkedin.com/in/vansh-agarwal-0204/" },
+
+  // Room 4: Achievements
+  { room: 4, xMin: 50, xMax: 250, id: 'leadership', message: ["LEADERSHIP WALL.", "President of the Robotics Club.", "Lead for TEKRON 2.0 — led multiple teams and organized technical events.", "Organized events in TEKRON '25, scaling to hundreds of participants."] },
+  { room: 4, xMin: 320, xMax: 650, id: 'hackathons', message: ["HACKATHON GALLERY.", "Participated in 10+ Hackathons including Adobe India Hackathon, 0 to 1 Hackathon, and Scratch That Code.", "Built projects under high pressure with teams like 'Mavericks' and 'FixTime'."], link: "https://github.com/Vansh0204?tab=repositories" },
+  { room: 4, xMin: 60, xMax: 150, id: 'robosoccer', message: ["ROBO SOCCER TROPHY.", "Participated in competitive robotics.", "Built a fully functional soccer-playing robot with team 'Oynx'."] },
+  { room: 4, xMin: 650, xMax: 750, id: 'club_pres', message: ["PRESIDENT'S LOG.", "Served as President of the Robotics Club.", "Mentored juniors and fostered a culture of hands-on engineering."] }
 ];

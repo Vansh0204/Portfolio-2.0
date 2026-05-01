@@ -391,8 +391,45 @@ body::before {
   animation: room-transition-fade 0.8s steps(4) forwards;
 }
 
+@keyframes tech-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.tech-marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  position: relative;
+}
+
+.tech-marquee-content {
+  display: inline-block;
+  animation: tech-scroll 10s linear infinite;
+}
+
+.tech-marquee-content span {
+  padding-right: 40px;
+}
+
 .mobile-controls {
   display: none;
+}
+
+.nav-btn {
+  transition: all 0.1s steps(2);
+  user-select: none;
+}
+
+.nav-btn:hover {
+  background: var(--gb-darkest) !important;
+  color: var(--gb-light) !important;
+  transform: scale(1.1);
+}
+
+.nav-btn:active {
+  transform: scale(0.9) translate(2px, 2px);
+  box-shadow: none !important;
 }
 
 @media (max-width: 768px) {

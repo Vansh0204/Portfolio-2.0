@@ -53,7 +53,11 @@ const DialogueBox = ({ hotspot, onClose, onComplete }) => {
       }
 
       if ((e.key === 'f' || e.key === 'F') && !isTyping && isLastPage && hotspot.link) {
-        window.open(hotspot.link, '_blank');
+        if (hotspot.link.startsWith('mailto:')) {
+          window.location.href = hotspot.link;
+        } else {
+          window.open(hotspot.link, '_blank');
+        }
       }
 
       if ((e.key === 'l' || e.key === 'L') && !isTyping && isLastPage && hotspot.liveLink) {

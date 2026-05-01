@@ -9,6 +9,7 @@ import DialogueBox from './DialogueBox';
 import GameHUD from './GameHUD';
 import { ROOM_HOTSPOTS } from '../hotspots';
 import audioEngine from '../AudioEngine';
+import AchievementsRoom from './AchievementsRoom';
 
 const Confetti = ({ x, y, onDone }) => {
    useEffect(() => {
@@ -46,7 +47,8 @@ const ROOMS = [
   { id: 1, title: 'SKILLS' },
   { id: 2, title: 'PROJECTS' },
   { id: 3, title: 'OPEN SOURCE' },
-  { id: 4, title: 'CONTACT' },
+  { id: 4, title: 'ACHIEVEMENTS' },
+  { id: 5, title: 'CONTACT' },
 ];
 
 const loadSaveData = () => {
@@ -101,6 +103,36 @@ const GameEngine = ({ theme, setTheme }) => {
   const [musicOn, setMusicOn] = useState(false);
   const [transitioning, setTransitioning] = useState(false);
   const prevRoomRef = useRef(0);
+
+  const goToNextRoom = () => {
+    setGameState(prev => {
+      if (prev.currentRoom < ROOMS.length - 1) {
+        return {
+          ...prev,
+          currentRoom: prev.currentRoom + 1,
+          x: 16,
+          roomScrollX: 0,
+          isMoving: false
+        };
+      }
+      return prev;
+    });
+  };
+
+  const goToPrevRoom = () => {
+    setGameState(prev => {
+      if (prev.currentRoom > 0) {
+        return {
+          ...prev,
+          currentRoom: prev.currentRoom - 1,
+          x: 784,
+          roomScrollX: (prev.currentRoom - 1) === 2 ? 800 : 0,
+          isMoving: false
+        };
+      }
+      return prev;
+    });
+  };
 
   useEffect(() => {
     localStorage.setItem('vansh_save_v2', JSON.stringify({
@@ -166,6 +198,14 @@ const GameEngine = ({ theme, setTheme }) => {
       if (e.key === 't' || e.key === 'T') {
           const nextIndex = (currentThemeIndex + 1) % themes.length;
           setTheme(themes[nextIndex].id);
+      }
+
+      if (e.key === 'n' || e.key === 'N') {
+          goToNextRoom();
+      }
+
+      if (e.key === 'p' || e.key === 'P') {
+          goToPrevRoom();
       }
       
       keysRef.current[e.key] = true; 
@@ -236,7 +276,7 @@ const GameEngine = ({ theme, setTheme }) => {
           }
         } else {
           if (nextX > 784) {
-             if (currentRoom < 4) {
+             if (currentRoom < ROOMS.length - 1) {
                nextRoom++;
                nextX = 16;
                nextScroll = 0;
@@ -332,6 +372,8 @@ const GameEngine = ({ theme, setTheme }) => {
      });
   };
 
+
+
   const totalOffset = gameState.currentRoom * 800;
 
   return (
@@ -341,7 +383,7 @@ const GameEngine = ({ theme, setTheme }) => {
         className="rooms-track"
         style={{
           display: 'flex',
-          width: '4000px',
+          width: `${ROOMS.length * 800}px`,
           height: '100%',
           transform: `translateX(-${totalOffset}px)`,
           transition: 'transform 0.4s steps(8)',
@@ -365,7 +407,8 @@ const GameEngine = ({ theme, setTheme }) => {
             {room.id === 1 && <SkillsRoom />}
             {room.id === 2 && <ProjectsRoom roomScrollX={gameState.roomScrollX} isMoving={gameState.isMoving} />}
             {room.id === 3 && <OpenSourceRoom nearestHotspotId={gameState.nearestHotspot?.id} />}
-            {room.id === 4 && <ContactRoom />}
+            {room.id === 4 && <AchievementsRoom />}
+            {room.id === 5 && <ContactRoom />}
           </div>
         ))}
       </div>
@@ -410,7 +453,13 @@ const GameEngine = ({ theme, setTheme }) => {
             style={{ padding: '20px', borderRadius: '50%', background: 'var(--gb-darkest)', color: 'var(--gb-light)', border: 'none', fontFamily: "'Press Start 2P'", fontSize: '10px' }}>E</button>
          <button 
             onClick={() => {
-               if (gameState.activeHotspot && gameState.activeHotspot.link) window.open(gameState.activeHotspot.link, '_blank');
+               if (gameState.activeHotspot && gameState.activeHotspot.link) {
+                  if (gameState.activeHotspot.link.startsWith('mailto:')) {
+                     window.location.href = gameState.activeHotspot.link;
+                  } else {
+                     window.open(gameState.activeHotspot.link, '_blank');
+                  }
+               }
             }}
             style={{ padding: '20px', borderRadius: '50%', background: 'var(--gb-darkest)', color: 'var(--gb-light)', border: 'none', fontFamily: "'Press Start 2P'", fontSize: '10px' }}>F</button>
       </div>
@@ -471,6 +520,8 @@ const GameEngine = ({ theme, setTheme }) => {
          theme={theme}
          setTheme={setTheme}
          themes={themes}
+         onNext={goToNextRoom}
+         onPrev={goToPrevRoom}
       />
 
       {gameState.activeHotspot && (
