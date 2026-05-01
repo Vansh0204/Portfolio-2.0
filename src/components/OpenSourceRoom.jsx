@@ -46,7 +46,8 @@ const OpenSourceRoom = ({ nearestHotspotId }) => {
       </div>
 
       {/* 3. Four contribution PLAQUES on the wall */}
-      {[1, 2, 3, 4].map((num, idx) => {
+      {['TURBOREPO', 'P5.JS', 'FASTIFY', 'CORS'].map((name, idx) => {
+         const num = idx + 1;
          const leftPos = 40 + (idx * 200); // perfectly centers between the 200px pillars
          const plaqueId = `pr${num}`;
          const glow = nearestHotspotId === plaqueId ? '0 0 8px 4px var(--gb-light)' : 'none';
@@ -58,7 +59,7 @@ const OpenSourceRoom = ({ nearestHotspotId }) => {
              display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '10px'
            }}>
               {/* MERGE icon styling */}
-              <div style={{ position: 'relative', width: '16px', height: '16px', marginBottom: '14px' }}>
+              <div style={{ position: 'relative', width: '16px', height: '16px', marginBottom: '10px' }}>
                  {/* circle 1 */}
                  <div style={{ position: 'absolute', left: 0, bottom: 0, width: '6px', height: '6px', backgroundColor: 'var(--gb-light)', borderRadius: '50%' }} />
                  {/* circle 2 */}
@@ -66,8 +67,11 @@ const OpenSourceRoom = ({ nearestHotspotId }) => {
                  {/* connective path */}
                  <div style={{ position: 'absolute', left: '3px', bottom: '3px', width: '10px', height: '10px', borderTop: '2px solid var(--gb-light)', borderRight: '2px solid var(--gb-light)', borderTopRightRadius: '4px', boxSizing: 'border-box' }} />
               </div>
-              <div style={{ fontSize: '10px', color: 'var(--gb-light)', transform: 'scale(0.5)', fontFamily: "'Press Start 2P'", marginBottom: '20px' }}>
+              <div style={{ fontSize: '10px', color: 'var(--gb-light)', transform: 'scale(0.6)', fontFamily: "'Press Start 2P'", marginBottom: '8px' }}>
                 PR #{num}
+              </div>
+              <div style={{ fontSize: '8px', color: 'var(--gb-darkest)', fontFamily: "'Press Start 2P'", textAlign: 'center', lineHeight: 1.4, marginBottom: '12px' }}>
+                {name}
               </div>
               {/* Blank dialogue lines */}
               <div style={{ width: '80%', height: '4px', backgroundColor: 'var(--gb-dark)', marginBottom: '10px' }} />

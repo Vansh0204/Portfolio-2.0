@@ -175,9 +175,19 @@ const ProjectsRoom = ({ roomScrollX, isMoving }) => {
                 backgroundColor: 'var(--gb-dark)',
                 border: '3px solid var(--gb-light)',
                 boxSizing: 'border-box',
-                display: 'flex', alignItems: 'center', justifyContent: 'center'
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                overflow: 'hidden'
               }}>
-                <div style={{ fontSize: '4px', fontFamily: "'Press Start 2P'", color: 'var(--gb-light)', textAlign: 'center', lineHeight: 1.6, padding: '1px' }}>
+                <div style={{ 
+                  fontSize: '10px', 
+                  fontFamily: "'Press Start 2P'", 
+                  color: 'var(--gb-light)', 
+                  textAlign: 'center', 
+                  lineHeight: 1.2,
+                  whiteSpace: 'nowrap',
+                  transform: cabinet.name.length > 8 ? `scale(${8 / cabinet.name.length})` : 'none',
+                  transformOrigin: 'center center'
+                }}>
                   {cabinet.name}
                 </div>
               </div>
@@ -200,7 +210,14 @@ const ProjectsRoom = ({ roomScrollX, isMoving }) => {
                       <cabinet.Icon />
                     </div>
                   )}
-                  <div style={{ fontSize: '3px', fontFamily: "'Press Start 2P'", color: 'var(--gb-darkest)', lineHeight: 1.3 }}>
+                  <div style={{ 
+                    fontSize: '6px', 
+                    fontFamily: "'Press Start 2P'", 
+                    color: 'var(--gb-darkest)', 
+                    lineHeight: 1.3,
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden'
+                  }}>
                     {cabinet.tech.join(' ')}
                   </div>
                 </div>
@@ -225,9 +242,20 @@ const ProjectsRoom = ({ roomScrollX, isMoving }) => {
                 position: 'absolute', left: `${x}px`, bottom: '64px',
                 width: '74px', textAlign: 'center',
                 backgroundColor: 'var(--gb-darkest)', border: '2px solid var(--gb-light)',
-                padding: '3px 2px', boxSizing: 'border-box'
+                padding: '4px 2px', boxSizing: 'border-box',
+                overflow: 'hidden',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
               }}>
-                <div style={{ fontSize: '4px', fontFamily: "'Press Start 2P'", color: 'var(--gb-light)' }}>
+                <div style={{ 
+                  fontSize: '10px', 
+                  fontFamily: "'Press Start 2P'", 
+                  color: 'var(--gb-light)',
+                  whiteSpace: 'nowrap',
+                  transform: cabinet.name.length > 8 ? `scale(${8 / cabinet.name.length})` : 'none',
+                  transformOrigin: 'center center'
+                }}>
                   {cabinet.name}
                 </div>
               </div>

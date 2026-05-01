@@ -11,15 +11,11 @@ function App() {
 
   useEffect(() => {
     const handleResize = () => {
-       const wrapperWidth = window.innerWidth;
-       const wrapperHeight = window.innerHeight;
-       if (wrapperWidth < 850 || wrapperHeight < 600) {
-         const scaleX = wrapperWidth / 860;
-         const scaleY = wrapperHeight / 610;
-         setScale(Math.min(scaleX, scaleY));
-       } else {
-         setScale(1);
-       }
+       const wrapperWidth = window.innerWidth * 0.95; // 5% padding
+       const wrapperHeight = window.innerHeight * 0.95;
+       const scaleX = wrapperWidth / 860;
+       const scaleY = wrapperHeight / 610;
+       setScale(Math.min(scaleX, scaleY));
     };
     window.addEventListener('resize', handleResize);
     handleResize();

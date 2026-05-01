@@ -97,7 +97,7 @@ const DialogueBox = ({ hotspot, onClose, onComplete }) => {
       <div style={{
         color: 'var(--gb-light)',
         fontFamily: "'Press Start 2P'",
-        fontSize: '8px',
+        fontSize: '10px',
         lineHeight: 1.8,
         letterSpacing: '1px'
       }}>
@@ -128,14 +128,16 @@ const DialogueBox = ({ hotspot, onClose, onComplete }) => {
           right: '16px',
           color: 'var(--gb-light)',
           fontSize: '12px',
-          fontFamily: "'Press Start 2P'"
+          fontFamily: "'Press Start 2P'",
+          transform: 'scale(0.66)',
+          transformOrigin: 'bottom right'
         }}>
-          ▼
+          ENTER: CONTINUE
         </div>
       )}
 
       {/* Hotspot Link interaction */}
-      {!isTyping && isLastPage && (hotspot.link || hotspot.liveLink) && (
+      {!isTyping && isLastPage && (
         <div className="blink" style={{
           position: 'absolute',
           bottom: '10px',
@@ -146,7 +148,11 @@ const DialogueBox = ({ hotspot, onClose, onComplete }) => {
           transform: 'scale(0.66)',
           transformOrigin: 'bottom left'
         }}>
-          {hotspot.link && hotspot.liveLink ? "F: SOURCE | L: LIVE DEMO" : hotspot.link ? "F: OPEN SOURCE" : "L: LIVE DEMO"}
+          {hotspot.link || hotspot.liveLink ? (
+             (hotspot.link && hotspot.liveLink ? "F: SOURCE | L: LIVE DEMO" : hotspot.link ? "F: OPEN SOURCE" : "L: LIVE DEMO")
+          ) : (
+            "ENTER: CLOSE"
+          )}
         </div>
       )}
     </div>
