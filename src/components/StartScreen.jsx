@@ -13,7 +13,10 @@ const StartScreen = ({ onStart, theme, setTheme }) => {
     { id: 'theme-bloodmoon', name: 'BLOOD MOON' },
     { id: 'theme-emerald', name: 'EMERALD' },
     { id: 'theme-royal', name: 'ROYAL GOLD' },
-    { id: 'theme-pocket', name: 'GBP (B&W)' }
+    { id: 'theme-pocket', name: 'GBP (B&W)' },
+    { id: 'theme-ice', name: 'ICE CAVE' },
+    { id: 'theme-sunset', name: 'SUNSET' },
+    { id: 'theme-neon', name: 'NEON PINK' }
   ];
 
   const currentThemeIndex = themes.findIndex(t => t.id === theme);
@@ -78,7 +81,7 @@ const StartScreen = ({ onStart, theme, setTheme }) => {
        </div>
 
        <div style={{ position: 'absolute', bottom: '80px', fontSize: '8px', fontFamily: "'Press Start 2P'", color: 'var(--gb-darkest)' }}>
-          ROOMS: 5 &nbsp;&nbsp;&nbsp; PROJECTS: 8 &nbsp;&nbsp;&nbsp; PRS: 4
+          ROOMS: 6 &nbsp;&nbsp;&nbsp; PROJECTS: 8 &nbsp;&nbsp;&nbsp; PRS: 4
        </div>
 
        <div style={{ position: 'absolute', bottom: '30px', right: '30px', fontSize: '8px', fontFamily: "'Press Start 2P'", color: 'var(--gb-darkest)' }}>
