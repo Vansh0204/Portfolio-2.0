@@ -71,7 +71,10 @@ const GameEngine = ({ theme, setTheme }) => {
     { id: 'theme-bloodmoon', name: 'BLOOD MOON' },
     { id: 'theme-emerald', name: 'EMERALD' },
     { id: 'theme-royal', name: 'ROYAL GOLD' },
-    { id: 'theme-pocket', name: 'GBP (B&W)' }
+    { id: 'theme-pocket', name: 'GBP (B&W)' },
+    { id: 'theme-ice', name: 'ICE CAVE' },
+    { id: 'theme-sunset', name: 'SUNSET' },
+    { id: 'theme-neon', name: 'NEON PINK' }
   ];
 
   const currentThemeIndex = themes.findIndex(t => t.id === theme);

@@ -97,6 +97,36 @@
   --bg-base: #050505;
 }
 
+.theme-ice {
+  --gb-light: #05161d;
+  --gb-medium: #0d3b4c;
+  --gb-dark: #20a4d5;
+  --gb-darkest: #e0f7fa;
+  --bg-glow: #20a4d5;
+  --bg-accent: #0d3b4c;
+  --bg-base: #000508;
+}
+
+.theme-sunset {
+  --gb-light: #150a06;
+  --gb-medium: #4e1d09;
+  --gb-dark: #f39c12;
+  --gb-darkest: #fef5e7;
+  --bg-glow: #f39c12;
+  --bg-accent: #4e1d09;
+  --bg-base: #050200;
+}
+
+.theme-neon {
+  --gb-light: #120108;
+  --gb-medium: #4d0221;
+  --gb-dark: #ff006e;
+  --gb-darkest: #ffffff;
+  --bg-glow: #ff006e;
+  --bg-accent: #4d0221;
+  --bg-base: #050002;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
