@@ -13,7 +13,7 @@ function App() {
   useEffect(() => {
     const fetchVisitors = async () => {
       try {
-        const response = await fetch('https://api.counterapi.dev/v1/vansh-portfolio-2-0/visits/increment');
+        const response = await fetch('https://api.counterapi.dev/v1/vansh-portfolio-2-0/visits/up');
         const data = await response.json();
         if (data.count) {
           setVisitorCount(data.count);
