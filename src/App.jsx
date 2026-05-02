@@ -8,6 +8,22 @@ function App() {
   const [started, setStarted] = useState(false);
   const [scale, setScale] = useState(1);
   const [theme, setTheme] = useState('theme-gb');
+  const [visitorCount, setVisitorCount] = useState(0);
+
+  useEffect(() => {
+    const fetchVisitors = async () => {
+      try {
+        const response = await fetch('https://api.counterapi.dev/v1/vansh-portfolio-2-0/visits/increment');
+        const data = await response.json();
+        if (data.count) {
+          setVisitorCount(data.count);
+        }
+      } catch (error) {
+        console.error('Failed to fetch visitor count:', error);
+      }
+    };
+    fetchVisitors();
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -34,9 +50,9 @@ function App() {
         <div className="game-viewport">
           <div className="scanline-overlay"></div>
           {started ? (
-            <GameEngine theme={theme} setTheme={setTheme} />
+            <GameEngine theme={theme} setTheme={setTheme} visitorCount={visitorCount} />
           ) : (
-            <StartScreen onStart={handleStart} theme={theme} setTheme={setTheme} />
+            <StartScreen onStart={handleStart} theme={theme} setTheme={setTheme} visitorCount={visitorCount} />
           )}
         </div>
       </div>

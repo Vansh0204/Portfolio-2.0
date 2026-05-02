@@ -1,6 +1,6 @@
 import React from 'react';
 
-const GameHUD = ({ x, currentRoom, roomScrollX, score, musicOn, toggleMusic, toggleFullscreen, theme, setTheme, themes, onNext, onPrev }) => {
+const GameHUD = ({ x, currentRoom, roomScrollX, score, musicOn, toggleMusic, toggleFullscreen, theme, setTheme, themes, onNext, onPrev, visitorCount }) => {
   const ROOM_NAMES = ['ABOUT', 'SKILLS', 'PROJECTS', 'OPEN SOURCE', 'ACHIEVEMENTS', 'CONTACT'];
   const currentThemeIndex = themes ? themes.findIndex(t => t.id === theme) : -1;
   
@@ -92,6 +92,11 @@ const GameHUD = ({ x, currentRoom, roomScrollX, score, musicOn, toggleMusic, tog
           <div style={{ fontSize: '12px', fontFamily: "'Press Start 2P'", color: 'var(--gb-darkest)' }}>
              SCORE {score.toString().padStart(4, '0')}
           </div>
+          {visitorCount !== undefined && (
+             <div style={{ fontSize: '10px', fontFamily: "'Press Start 2P'", color: 'var(--gb-darkest)' }}>
+                VISITS {visitorCount.toString().padStart(5, '0')}
+             </div>
+          )}
           <div style={{ display: 'flex', gap: '8px', pointerEvents: 'auto' }}>
              <button 
                 onClick={() => {

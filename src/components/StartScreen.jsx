@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PixelCharacter from './PixelCharacter';
 
-const StartScreen = ({ onStart, theme, setTheme }) => {
+const StartScreen = ({ onStart, theme, setTheme, visitorCount }) => {
   const [mounted, setMounted] = useState(false);
   
   const themes = [
@@ -80,9 +80,9 @@ const StartScreen = ({ onStart, theme, setTheme }) => {
           PRESS ENTER TO START
        </div>
 
-       <div style={{ position: 'absolute', bottom: '80px', fontSize: '8px', fontFamily: "'Press Start 2P'", color: 'var(--gb-darkest)' }}>
-          ROOMS: 6 &nbsp;&nbsp;&nbsp; PROJECTS: 8 &nbsp;&nbsp;&nbsp; PRS: 4
-       </div>
+        <div style={{ position: 'absolute', bottom: '80px', fontSize: '8px', fontFamily: "'Press Start 2P'", color: 'var(--gb-darkest)' }}>
+           ROOMS: 6 &nbsp;&nbsp;&nbsp; PROJECTS: 8 &nbsp;&nbsp;&nbsp; VISITORS: {visitorCount.toString().padStart(5, '0')}
+        </div>
 
        <div style={{ position: 'absolute', bottom: '30px', right: '30px', fontSize: '8px', fontFamily: "'Press Start 2P'", color: 'var(--gb-darkest)' }}>
           v2.0

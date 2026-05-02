@@ -59,7 +59,7 @@ const loadSaveData = () => {
   return { readHotspots: [], score: 0, completedRooms: [] };
 };
 
-const GameEngine = ({ theme, setTheme }) => {
+const GameEngine = ({ theme, setTheme, visitorCount }) => {
   const initData = loadSaveData();
 
   const themes = [
@@ -525,6 +525,7 @@ const GameEngine = ({ theme, setTheme }) => {
          themes={themes}
          onNext={goToNextRoom}
          onPrev={goToPrevRoom}
+         visitorCount={visitorCount}
       />
 
       {gameState.activeHotspot && (
