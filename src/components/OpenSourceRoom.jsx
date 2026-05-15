@@ -53,7 +53,7 @@ const OpenSourceRoom = ({ nearestHotspotId }) => {
          const glow = nearestHotspotId === plaqueId ? '0 0 8px 4px var(--gb-light)' : 'none';
          return (
            <div key={num} style={{ 
-             position: 'absolute', left: `${leftPos}px`, top: '80px', width: '120px', height: '140px', 
+             position: 'absolute', left: `${leftPos}px`, top: '130px', width: '120px', height: '140px', 
              border: '4px solid var(--gb-darkest)', backgroundColor: 'var(--gb-medium)', boxSizing: 'border-box',
              boxShadow: glow, transition: 'box-shadow 0.2s',
              display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '10px'

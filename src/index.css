@@ -472,3 +472,23 @@ body::before {
 canvas, img {
   image-rendering: pixelated;
 }
+
+@keyframes slide-bounce-left {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-4px); }
+}
+
+.animate-bounce-left {
+  animation: slide-bounce-left 0.8s steps(2) infinite;
+  display: inline-block;
+}
+
+@keyframes slide-bounce-right {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+
+.animate-bounce-right {
+  animation: slide-bounce-right 0.8s steps(2) infinite;
+  display: inline-block;
+}

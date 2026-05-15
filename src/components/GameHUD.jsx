@@ -8,17 +8,38 @@ const GameHUD = ({ x, currentRoom, roomScrollX, score, musicOn, toggleMusic, tog
     <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 50, pointerEvents: 'none' }}>
        
        {/* 1. Top-Left Avatar + Name */}
-       <div style={{ position: 'absolute', top: '20px', left: '20px', display: 'flex', alignItems: 'center', gap: '10px' }}>
-          {/* 16x16 face */}
-          <div style={{ width: '16px', height: '16px', backgroundColor: 'var(--gb-medium)', position: 'relative', border: '2px solid var(--gb-darkest)' }}>
-             {/* Eyes */}
-             <div style={{ position: 'absolute', left: '2px', top: '4px', width: '2px', height: '2px', backgroundColor: 'var(--gb-darkest)' }} />
-             <div style={{ position: 'absolute', right: '2px', top: '4px', width: '2px', height: '2px', backgroundColor: 'var(--gb-darkest)' }} />
-             {/* Mouth */}
-             <div style={{ position: 'absolute', left: '4px', bottom: '2px', width: '4px', height: '2px', backgroundColor: 'var(--gb-darkest)' }} />
+       <div style={{ position: 'absolute', top: '20px', left: '20px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+             {/* 16x16 face */}
+             <div style={{ width: '16px', height: '16px', backgroundColor: 'var(--gb-medium)', position: 'relative', border: '2px solid var(--gb-darkest)' }}>
+                {/* Eyes */}
+                <div style={{ position: 'absolute', left: '2px', top: '4px', width: '2px', height: '2px', backgroundColor: 'var(--gb-darkest)' }} />
+                <div style={{ position: 'absolute', right: '2px', top: '4px', width: '2px', height: '2px', backgroundColor: 'var(--gb-darkest)' }} />
+                {/* Mouth */}
+                <div style={{ position: 'absolute', left: '4px', bottom: '2px', width: '4px', height: '2px', backgroundColor: 'var(--gb-darkest)' }} />
+             </div>
+             <div style={{ fontSize: '12px', fontFamily: "'Press Start 2P'", color: 'var(--gb-darkest)', backgroundColor: 'var(--gb-light)', padding: '4px 8px', border: '2px solid var(--gb-darkest)' }}>
+               VANSH
+             </div>
           </div>
-          <div style={{ fontSize: '12px', fontFamily: "'Press Start 2P'", color: 'var(--gb-darkest)' }}>
-            VANSH
+          
+          <div 
+             onClick={onPrev}
+             className="animate-bounce-left" 
+             style={{ 
+                alignSelf: 'flex-start',
+                fontSize: '10px', 
+                fontFamily: "'Press Start 2P'", 
+                color: 'var(--gb-light)', 
+                backgroundColor: 'var(--gb-darkest)',
+                padding: '6px 10px',
+                border: '2px solid var(--gb-light)',
+                cursor: currentRoom === 0 ? 'default' : 'pointer',
+                opacity: currentRoom === 0 ? 0 : 1,
+                pointerEvents: currentRoom === 0 ? 'none' : 'auto'
+             }}
+          >
+             ← MOVE BACK
           </div>
        </div>
 
@@ -33,26 +54,6 @@ const GameHUD = ({ x, currentRoom, roomScrollX, score, musicOn, toggleMusic, tog
           gap: '12px', 
           pointerEvents: 'auto' 
        }}>
-          <button 
-             onClick={onPrev}
-             className="nav-btn"
-             disabled={currentRoom === 0}
-             style={{ 
-                background: 'var(--gb-medium)', 
-                border: '2px solid var(--gb-darkest)', 
-                color: 'var(--gb-darkest)', 
-                fontSize: '10px', 
-                fontFamily: "'Press Start 2P'", 
-                padding: '4px 8px', 
-                cursor: currentRoom === 0 ? 'default' : 'pointer',
-                opacity: currentRoom === 0 ? 0 : 1,
-                visibility: currentRoom === 0 ? 'hidden' : 'visible',
-                boxShadow: '2px 2px 0px var(--gb-dark)'
-             }}
-          >
-             ←
-          </button>
-
           <div style={{ 
              fontSize: '12px', 
              fontFamily: "'Press Start 2P'", 
@@ -65,38 +66,32 @@ const GameHUD = ({ x, currentRoom, roomScrollX, score, musicOn, toggleMusic, tog
           }}>
              {ROOM_NAMES[currentRoom]}
           </div>
-
-          <button 
-             onClick={onNext}
-             className="nav-btn"
-             disabled={currentRoom === ROOM_NAMES.length - 1}
-             style={{ 
-                background: 'var(--gb-medium)', 
-                border: '2px solid var(--gb-darkest)', 
-                color: 'var(--gb-darkest)', 
-                fontSize: '10px', 
-                fontFamily: "'Press Start 2P'", 
-                padding: '4px 8px', 
-                cursor: currentRoom === ROOM_NAMES.length - 1 ? 'default' : 'pointer',
-                opacity: currentRoom === ROOM_NAMES.length - 1 ? 0 : 1,
-                visibility: currentRoom === ROOM_NAMES.length - 1 ? 'hidden' : 'visible',
-                boxShadow: '2px 2px 0px var(--gb-dark)'
-             }}
-          >
-             →
-          </button>
        </div>
 
        {/* 3 & 6. Top-Right Score + Buttons */}
        <div style={{ position: 'absolute', top: '20px', right: '20px', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '10px' }}>
-          <div style={{ fontSize: '12px', fontFamily: "'Press Start 2P'", color: 'var(--gb-darkest)' }}>
-             SCORE {score.toString().padStart(4, '0')}
-          </div>
           {visitorCount !== undefined && (
-             <div style={{ fontSize: '10px', fontFamily: "'Press Start 2P'", color: 'var(--gb-darkest)' }}>
+             <div style={{ fontSize: '10px', fontFamily: "'Press Start 2P'", color: 'var(--gb-darkest)', backgroundColor: 'var(--gb-light)', padding: '4px 8px', border: '2px solid var(--gb-darkest)' }}>
                 VISITS {visitorCount.toString().padStart(5, '0')}
              </div>
           )}
+          <div 
+             onClick={onNext}
+             className="animate-bounce-right" 
+             style={{ 
+                fontSize: '10px', 
+                fontFamily: "'Press Start 2P'", 
+                color: 'var(--gb-light)', 
+                backgroundColor: 'var(--gb-darkest)',
+                padding: '6px 10px',
+                border: '2px solid var(--gb-light)',
+                cursor: currentRoom === ROOM_NAMES.length - 1 ? 'default' : 'pointer',
+                opacity: currentRoom === ROOM_NAMES.length - 1 ? 0 : 1,
+                pointerEvents: currentRoom === ROOM_NAMES.length - 1 ? 'none' : 'auto'
+             }}
+          >
+             MOVE AHEAD →
+          </div>
           <div style={{ display: 'flex', gap: '8px', pointerEvents: 'auto' }}>
              <button 
                 onClick={() => {
@@ -120,7 +115,9 @@ const GameHUD = ({ x, currentRoom, roomScrollX, score, musicOn, toggleMusic, tog
                 [ ]
              </button>
           </div>
+
        </div>
+
 
        {/* 4. Bottom Minimap (160x20 bar) */}
        <div style={{ position: 'absolute', bottom: '45px', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '2px' }}>
